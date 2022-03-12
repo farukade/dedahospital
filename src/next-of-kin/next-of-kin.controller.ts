@@ -10,9 +10,9 @@ export class NextOfKinController {
   constructor(private readonly nextOfKinService: NextOfKinService) {}
 
   @Post('create')
-  // create(@Body() createNextOfKinDto: CreateNextOfKinDto) {
-  //   return this.nextOfKinService.create(createNextOfKinDto);
-  // }
+  create(@Body() createNextOfKinDto: CreateNextOfKinDto) {
+    return this.nextOfKinService.create(createNextOfKinDto);
+  }
 
   // @Get()
   // findAll() {
