@@ -19,20 +19,20 @@ export class NextOfKinService {
     return nextOfKin;
   }
 
-  findAll() {
-    return `This action returns all nextOfKin`;
-  }
+  // findAll() {
+  //   return `This action returns all nextOfKin`;
+  // }
 
-  findOne(id: number) {
-    return `This action returns a #${id} nextOfKin`;
-  }
+  // findOne(id: number) {
+  //   return `This action returns a #${id} nextOfKin`;
+  // }
 
   async update(id: number, data: Partial<UpdateNextOfKinDto>) {
     await this.nextOfKinsRepository.update({ id }, data);
     return await this.nextOfKinsRepository.findOne({ id });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} nextOfKin`;
-  }
+  // remove(id: number) {
+  //   return `This action removes a #${id} nextOfKin`;
+  // }
 }

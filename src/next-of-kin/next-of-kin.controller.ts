@@ -2,13 +2,16 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { NextOfKinService } from './next-of-kin.service';
 import { CreateNextOfKinDto } from './dto/create-next-of-kin.dto';
 import { UpdateNextOfKinDto } from './dto/update-next-of-kin.dto';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiNotFoundResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
+import { NextOfKin } from './entities/next-of-kin.entity';
 
 @ApiTags('Next-Of-Kin')
 @Controller('next-of-kin')
 export class NextOfKinController {
   constructor(private readonly nextOfKinService: NextOfKinService) {}
 
+  @ApiOkResponse({type: NextOfKin})
+  @ApiNotFoundResponse()
   @Post('create')
   create(@Body() createNextOfKinDto: CreateNextOfKinDto) {
     return this.nextOfKinService.create(createNextOfKinDto);
@@ -24,6 +27,8 @@ export class NextOfKinController {
   //   return this.nextOfKinService.findOne(+id);
   // }
 
+  @ApiOkResponse({type: NextOfKin})
+  @ApiNotFoundResponse()
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateNextOfKinDto: UpdateNextOfKinDto) {
     return this.nextOfKinService.update(+id, updateNextOfKinDto);

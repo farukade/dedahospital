@@ -48,8 +48,4 @@ photo: String;
 
 @Column()
 address: String;
-
-@OneToOne(() => NextOfKin)
-@JoinColumn()
-nextOfKin: NextOfKin;
 }
