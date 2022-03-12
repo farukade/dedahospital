@@ -18,6 +18,7 @@ config()
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     entities: [User, NextOfKin],
+    autoLoadEntities: true,
     synchronize: true,
   }), NextOfKinModule,],
   controllers: [AppController],
