@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { NextOfKin } from "src/next-of-kin/entities/next-of-kin.entity";
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class User {
@@ -47,4 +48,8 @@ photo: String;
 
 @Column()
 address: String;
+
+@OneToOne(() => NextOfKin)
+@JoinColumn()
+nextOfKin: NextOfKin;
 }
